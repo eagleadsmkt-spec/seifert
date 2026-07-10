@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triagem Visual | Seifert Ótica Inteligente</title>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGB3FGQG');</script>
+<!-- End Google Tag Manager -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #F97B5C;
+    --coral-light: #FBBDAC;
+    --coral-dark: #D95A3A;
+    --blue: #6B7FD4;
+    --blue-light: #B5C0EC;
+    --blue-dark: #4A5BB0;
+    --deep: #2E2E3A;
+    --cream: #F5F2ED;
+    --white: #FFFFFF;
+    --text-muted: #7A7A8A;
+    --border: rgba(0,0,0,0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--deep);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    background: var(--deep);
+    padding: 60px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(249,123,92,0.12);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -40px; left: 50%;
+    transform: translateX(-50%);
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(249,123,92,0.08);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(249,123,92,0.15);
+    color: var(--coral);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 em {
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  .hero p {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-cta:hover { background: var(--coral-dark); transform: translateY(-1px); }
+
+  .trust-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .trust-item .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--coral);
+  }
+
+  .quiz-section {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  .progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .progress-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .progress-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--coral);
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 100px;
+    margin-bottom: 40px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--coral);
+    border-radius: 100px;
+    transition: width 0.5s ease;
+  }
+
+  .question-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+  }
+
+  .question-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+
+  .question-text {
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--deep);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .question-hint {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    background: var(--cream);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--deep);
+    font-weight: 400;
+    text-align: left;
+    transition: all 0.15s;
+    width: 100%;
+  }
+
+  .option-btn:hover {
+    border-color: var(--coral-light);
+    background: rgba(249,123,92,0.05);
+  }
+
+  .option-btn.selected {
+    border-color: var(--coral);
+    background: rgba(249,123,92,0.08);
+    font-weight: 500;
+  }
+
+  .option-indicator {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    font-size: 11px;
+    font-weight: 700;
+    color: transparent;
+  }
+
+  .option-btn.selected .option-indicator {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: white;
+  }
+
+  .context-notice {
+    background: rgba(107,127,212,0.08);
+    border: 1px solid rgba(107,127,212,0.2);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--blue-dark);
+    margin-bottom: 28px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .context-notice svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .quiz-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .btn-back {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.2px;
+  }
+  .btn-back:hover { color: var(--deep); }
+
+  .btn-next {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-next:hover { background: var(--coral-dark); transform: translateY(-1px); }
+  .btn-next:disabled { background: rgba(0,0,0,0.15); color: rgba(0,0,0,0.3); cursor: not-allowed; transform: none; }
+
+  .contact-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+  }
+
+  .contact-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 8px;
+  }
+
+  .contact-card p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--deep);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--coral);
+    background: white;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-submit:hover { background: var(--coral-dark); transform: translateY(-1px); }
+  .btn-submit:disabled { background: rgba(0,0,0,0.15); color: rgba(0,0,0,0.3); cursor: not-allowed; transform: none; }
+
+  .privacy-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+
+  .result-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    text-align: center;
+  }
+
+  .result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .result-badge.green { background: rgba(34,197,94,0.12); color: #15803D; }
+  .result-badge.blue { background: rgba(107,127,212,0.12); color: var(--blue-dark); }
+  .result-badge.orange { background: rgba(249,123,92,0.15); color: var(--coral-dark); }
+  .result-badge.red { background: rgba(220,38,38,0.1); color: #B91C1C; }
+
+  .result-score-wrap {
+    margin-bottom: 28px;
+  }
+
+  .result-score {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--deep);
+  }
+
+  .result-score-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .result-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .result-hypothesis {
+    display: inline-block;
+    background: rgba(249,123,92,0.1);
+    color: var(--coral-dark);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .result-message {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    text-align: left;
+    background: var(--cream);
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .urgency-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .urgency-bar.green { background: rgba(34,197,94,0.08); color: #15803D; border: 1px solid rgba(34,197,94,0.2); }
+  .urgency-bar.blue { background: rgba(107,127,212,0.08); color: var(--blue-dark); border: 1px solid rgba(107,127,212,0.2); }
+  .urgency-bar.orange { background: rgba(249,123,92,0.08); color: var(--coral-dark); border: 1px solid rgba(249,123,92,0.25); }
+  .urgency-bar.red { background: rgba(220,38,38,0.07); color: #B91C1C; border: 1px solid rgba(220,38,38,0.2); }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 18px 32px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+  }
+  .btn-whatsapp:hover { background: #1BAE55; transform: translateY(-1px); }
+  .btn-whatsapp svg { flex-shrink: 0; }
+
+  .result-disclaimer {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .section-alt {
+    background: var(--white);
+    padding: 72px 32px;
+  }
+
+  .features-grid {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 52px; height: 52px;
+    background: rgba(249,123,92,0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 22px;
+  }
+
+  .feature-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 6px;
+  }
+
+  .feature-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .screen.active { animation: fadeUp 0.3s ease; }
+
+  @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
+    .question-card, .contact-card, .result-card { padding: 28px 20px; }
+    .hero { padding: 48px 20px 64px; }
+    .quiz-section { padding: 40px 16px 60px; }
+    header { padding: 16px 20px; }
+    .result-score { font-size: 48px; }
+  }
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGB3FGQG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAADuCAYAAADlanmdAACokklEQVR42uydd4BU1fn+n/ecO3V7hV16h6UL2GUXRMXemLFEo4mKGmOMJuanSXTmmpj2TdEUEzGxxBb3amIHG+xiF7GzShHpZWEXts/Mvfe8vz9mFlERgZ2F3eV8EqTs7szcc877nue85z3vIWg0mi4Ph0KSLMsFgL+eUX704X1yQwUB79F+SUMAyvZKao4pVdviqMWf1rc+feLdzz4BoJE5IohMBsC6FTUajWb/QboJNJouLq4qQ5LClnvT1MlTzp3U/+Y+WYGTcjK8AsyAqwDmpCkLAqQAHIW1TW2ffryx8dcn3DfvX0SAYhBpkaXRaDRaYGk0GmBBpNyYZlY7d51x1PdPKet7e+/8LIG2OKDYBTGBiZiSdszMDIAFAfB6BEjg7dVb/jfljqcuZuYmEOEgFVnU/tDRyJ77vKgJ1qJUo9FogaXR9DAqQyEZtiz3rjOOvPKCScPu8AtmZbuKBMlvMlzFrASRi0y/54OVtc+N/+uTp3JlSFHYUujZooE4EqEqVIkKVABRKCFMxVomaTQaLbA0Gk0kEhHRaJSvr5gw/idHjlpUlO0jlbBJkBB7+hrJjUNOICPgnb9k/a3H3j335+3bjT3Nj1WGQiJUVkvCrHZ2oaXkkQUFwfJR/fyCbP/WhPJ/0wtmw4c62dZy92tLN+jRqNFotMDSaHoI7ULozStOeebQob1OUi0xRxAZe/s6isHCkGpbS9z92UsfTvjHm0s+vjkCYZpQPcF/LYiUy2NvWejsFKLy33bK1LEje/kP650RMe7OK4d6JPUNSJEtiAKK2eso9u627ZmVDPjEik0Niw/7x1OHMTOISMfANBrNXmHoJtBouhYRQFDYciMzJvUfWZA5HbEEAyT35bUEgeA6nJeX4T1ndL/z/v7mkpujKBcmqruzwCKuDAkKW+40s9oBYNx+ylEnHjOw+KSigOf4vIBncEaGFxAieQBAKUBx6jAA2kN7X4/LhAwfFTS0GHvw3RqNRrNr/6ubQKPpWlREygUAHF7a66jszIAfipWgfZ/kFROBmUuzA+UAgGhFtxVXlaGQFERMYcvNQEavFy6defVn14cWX3nokCcnDsi/om9BcHCGRzDitoO2mKPaEq5K2ErZDitHMRzFcFO/f80vpVjBUexwj4jyaTSaA4SOYGk0XU1gpX7P89MglgSyO5iUTkxQinL83gIAJIWpkIzKdKttr53yx7wvXDLzksH5mTcNLswuARhI2AptMaWSQTtBgAEQBCH5qHslT5lAIDDryJVGo9ECS6PpaSiQn6hdB3V8rneRzD3qbslEDBAiEaKw6f7quEOPP31M3/8r684ZB8VAKQmHoloYViBLZpKBSK62QFOjwxpRRm4wAAAABJRU5ErkJggg==" alt="Seifert Ótica Inteligente" style="height:48px; display:block;">
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero-section">
+  <div class="hero-eyebrow">Triagem visual gratuita</div>
+  <h1>Descubra como está<br>a sua <em>saúde visual</em></h1>
+  <p>9 perguntas simples. Resultado imediato. Tecnologia desenvolvida por especialistas em saúde ocular.</p>
+  <button class="hero-cta" onclick="startQuiz()">
+    Fazer o teste agora
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </button>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="dot"></div>Gratuito e sem compromisso</div>
+  <div class="trust-item"><div class="dot"></div>Resultado em menos de 2 min</div>
+  <div class="trust-item"><div class="dot"></div>Desenvolvido por especialistas</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section-alt">
+  <div style="text-align:center; max-width:520px; margin: 0 auto 48px;">
+    <div style="font-size:12px; font-weight:700; letter-spacing:2px; color:var(--coral); text-transform:uppercase; margin-bottom:12px;">Como funciona</div>
+    <h2 style="font-size:28px; font-weight:700; color:var(--deep); line-height:1.2; margin-bottom:12px;">Triagem visual inteligente</h2>
+    <p style="font-size:15px; color:var(--text-muted); line-height:1.6;">Nosso sistema avalia seus sintomas e identifica possíveis alterações visuais, orientando sobre a urgência do agendamento.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Avaliação completa</h3>
+      <p>9 perguntas sobre visão de perto, longe, sintomas e hábitos visuais</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <h3>Sistema de pontuação</h3>
+      <p>Algoritmo calibrado por especialistas para identificar o grau de atenção necessário</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F97B5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <h3>Agendamento direto</h3>
+      <p>Com o resultado em mãos, agende sua consulta diretamente pelo WhatsApp</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<div class="quiz-section" id="quiz-section" style="display:none;">
+
+  <!-- Q1 -->
+  <div class="screen active" id="screen-q1">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 1 de 9</span>
+      <span class="progress-count">11%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:11%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 01</div>
+      <div class="question-text">Você usa óculos ou lentes de contato atualmente?</div>
+      <div class="question-hint">Esta informação nos ajuda a personalizar as próximas perguntas</div>
+      <div class="options" id="opts-q1">
+        <button class="option-btn" onclick="selectOption('q1', 'sim_oculos', 0, this)">
+          <div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Sim, uso óculos
+        </button>
+        <button class="option-btn" onclick="selectOption('q1', 'sim_lentes', 0, this)">
+          <div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Sim, uso lentes de contato
+        </button>
+        <button class="option-btn" onclick="selectOption('q1', 'nao', 0, this)">
+          <div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Não uso correção óptica
+        </button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <span></span>
+      <button class="btn-next" id="next-q1" disabled onclick="goTo('q2')">
+        Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="screen" id="screen-q2">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 2 de 9</span>
+      <span class="progress-count">22%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:22%"></div></div>
+    <div class="question-card" id="card-q2">
+      <div class="question-number">Pergunta 02</div>
+      <div class="question-text">Quando foi sua última consulta com oftalmologista ou optometrista?</div>
+      <div class="options" id="opts-q2">
+        <button class="option-btn" onclick="selectOption('q2', 'nunca', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Nunca fui</button>
+        <button class="option-btn" onclick="selectOption('q2', 'mais2', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Há mais de 2 anos</button>
+        <button class="option-btn" onclick="selectOption('q2', '1a2', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Entre 1 e 2 anos atrás</button>
+        <button class="option-btn" onclick="selectOption('q2', 'menos1', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Menos de 1 ano atrás</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q1')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q2" disabled onclick="goTo('q3')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="screen" id="screen-q3">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 3 de 9</span>
+      <span class="progress-count">33%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
+    <div class="question-card" id="card-q3">
+      <div class="question-number">Pergunta 03</div>
+      <div class="question-text">Como você enxerga objetos ou textos distantes?</div>
+      <div class="question-hint">Ex: placas de rua, televisão, lousa</div>
+      <div id="notice-q3"></div>
+      <div class="options" id="opts-q3">
+        <button class="option-btn" onclick="selectOption('q3', 'clara', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Claramente, sem dificuldade</button>
+        <button class="option-btn" onclick="selectOption('q3', 'pouco', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Um pouco borrado</button>
+        <button class="option-btn" onclick="selectOption('q3', 'muito', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Muito borrado</button>
+        <button class="option-btn" onclick="selectOption('q3', 'nao_consigo', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Não consigo ler / enxergar</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q2')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q3" disabled onclick="goTo('q4')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="screen" id="screen-q4">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 4 de 9</span>
+      <span class="progress-count">44%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:44%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 04</div>
+      <div class="question-text">Como você enxerga textos de perto?</div>
+      <div class="question-hint">Ex: celular, livro, cardápio, documento</div>
+      <div class="options" id="opts-q4">
+        <button class="option-btn" onclick="selectOption('q4', 'clara', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Claramente, sem dificuldade</button>
+        <button class="option-btn" onclick="selectOption('q4', 'pouco', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Um pouco borrado</button>
+        <button class="option-btn" onclick="selectOption('q4', 'muito', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Muito borrado</button>
+        <button class="option-btn" onclick="selectOption('q4', 'afastar', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Preciso afastar ou aproximar para enxergar</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q3')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q4" disabled onclick="goTo('q5')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="screen" id="screen-q5">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 5 de 9</span>
+      <span class="progress-count">55%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 05</div>
+      <div class="question-text">Você enxerga letras ou objetos com visão dupla ou sombra ao lado?</div>
+      <div class="options" id="opts-q5">
+        <button class="option-btn" onclick="selectOption('q5', 'nao', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Não</button>
+        <button class="option-btn" onclick="selectOption('q5', 'as_vezes', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Às vezes</button>
+        <button class="option-btn" onclick="selectOption('q5', 'frequente', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Com frequência</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q4')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q5" disabled onclick="goTo('q6')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="screen" id="screen-q6">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 6 de 9</span>
+      <span class="progress-count">66%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 06</div>
+      <div class="question-text">Você precisa franzir os olhos para enxergar melhor?</div>
+      <div class="options" id="opts-q6">
+        <button class="option-btn" onclick="selectOption('q6', 'nunca', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Nunca</button>
+        <button class="option-btn" onclick="selectOption('q6', 'as_vezes', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Às vezes</button>
+        <button class="option-btn" onclick="selectOption('q6', 'frequente', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Com frequência</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q5')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q6" disabled onclick="goTo('q7')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="screen" id="screen-q7">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 7 de 9</span>
+      <span class="progress-count">77%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:77%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 07</div>
+      <div class="question-text">Você sente dor de cabeça relacionada ao uso dos olhos?</div>
+      <div class="question-hint">Especialmente após ler, usar telas ou dirigir</div>
+      <div class="options" id="opts-q7">
+        <button class="option-btn" onclick="selectOption('q7', 'nao', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Não</button>
+        <button class="option-btn" onclick="selectOption('q7', 'as_vezes', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Às vezes</button>
+        <button class="option-btn" onclick="selectOption('q7', 'frequente', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Com frequência</button>
+        <button class="option-btn" onclick="selectOption('q7', 'todo_dia', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Quase todo dia</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q6')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q7" disabled onclick="goTo('q8')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="screen" id="screen-q8">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 8 de 9</span>
+      <span class="progress-count">88%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Pergunta 08</div>
+      <div class="question-text">Como está sua visão noturna ou em ambientes com pouca luz?</div>
+      <div class="options" id="opts-q8">
+        <button class="option-btn" onclick="selectOption('q8', 'normal', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Normal</button>
+        <button class="option-btn" onclick="selectOption('q8', 'pior', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Um pouco pior que o normal</button>
+        <button class="option-btn" onclick="selectOption('q8', 'muito', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Muito difícil — evito sair à noite</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q7')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q8" disabled onclick="goTo('q9')">Próxima <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="screen" id="screen-q9">
+    <div class="progress-header">
+      <span class="progress-label">Pergunta 9 de 9</span>
+      <span class="progress-count">99%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:99%"></div></div>
+    <div class="question-card">
+      <div class="question-number">Última pergunta!</div>
+      <div class="question-text">Você sente ardência ou coceira nos olhos?</div>
+      <div class="question-hint">Especialmente no final do dia ou após usar telas</div>
+      <div class="options" id="opts-q9">
+        <button class="option-btn" onclick="selectOption('q9', 'nao', 0, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Não</button>
+        <button class="option-btn" onclick="selectOption('q9', 'as_vezes', 1, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Às vezes</button>
+        <button class="option-btn" onclick="selectOption('q9', 'frequente', 2, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Com frequência</button>
+        <button class="option-btn" onclick="selectOption('q9', 'todo_dia', 3, this)"><div class="option-indicator"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></div> Quase todo dia</button>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn-back" onclick="goTo('q8')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Voltar</button>
+      <button class="btn-next" id="next-q9" disabled onclick="goToContact()">
+        Ver resultado
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="screen" id="screen-contact">
+    <div class="progress-header">
+      <span class="progress-label">Quase lá!</span>
+      <span class="progress-count">100%</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+    <div class="contact-card">
+      <h2>Seu resultado está pronto</h2>
+      <p>Preencha seus dados para liberar o resultado.</p>
+      <div class="form-group">
+        <label>Nome completo *</label>
+        <input type="text" id="f-nome" placeholder="Seu nome" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>WhatsApp *</label>
+          <input type="tel" id="f-phone" placeholder="(47) 99999-9999" required>
+        </div>
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="f-email" placeholder="seu@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Idade</label>
+        <select id="f-idade">
+          <option value="">Selecione</option>
+          <option>Menor de 18 anos</option>
+          <option>18 a 29 anos</option>
+          <option>30 a 44 anos</option>
+          <option>45 a 59 anos</option>
+          <option>60 anos ou mais</option>
+        </select>
+      </div>
+      <button class="btn-submit" id="btn-submit" onclick="showResult()">Liberar meu resultado</button>
+      <p class="privacy-note">Seus dados são protegidos e não serão compartilhados com terceiros</p>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="screen" id="screen-result">
+    <div class="result-card">
+      <div id="result-badge" class="result-badge"></div>
+      <div class="result-score-wrap">
+        <div class="result-score" id="result-score-num"></div>
+        <div class="result-score-label">pontos de 22</div>
+      </div>
+      <div class="result-title" id="result-title"></div>
+      <div class="result-hypothesis" id="result-hypothesis" style="display:none"></div>
+      <div class="result-message" id="result-message"></div>
+      <div class="urgency-bar" id="urgency-bar"></div>
+      <a class="btn-whatsapp" id="whatsapp-btn" href="#" target="_blank">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar minha consulta pelo WhatsApp
+      </a>
+      <p class="result-disclaimer">Esta triagem é informativa e não substitui avaliação presencial com profissional de saúde ocular.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin:0 0 6px; font-size:13px; color:rgba(255,255,255,0.35); letter-spacing:0.3px;">© Copyright Sua empresa · Todos os direitos reservados</p>
+  <p style="margin:0; font-size:12px; color:rgba(255,255,255,0.25); line-height:1.6;">Joalheria Seifert &nbsp;·&nbsp; CNPJ: 79.274.767/0001-69 &nbsp;·&nbsp; Av. Marechal Floriano Peixoto, 29 — Centro, Jaraguá do Sul — SC, 89251-150 / 89251-700</p>
+</footer>
+
+<script>
+  // =====================================================
+  // CONFIGURAÇÃO DO WEBHOOK — substitua a URL abaixo
+  // pela URL do seu webhook no Make.com
+  // =====================================================
+  const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/xnnegpjeysw1l28nltn4ul5yuuvkmlm8';
+
+  const answers = {};
+
+  function startQuiz() {
+    document.getElementById('hero-section').style.display = 'none';
+    document.querySelector('.trust-bar').style.display = 'none';
+    document.querySelector('.section-alt').style.display = 'none';
+    document.getElementById('quiz-section').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function selectOption(q, val, pts, btn) {
+    answers[q] = { val, pts };
+    const container = document.getElementById('opts-' + q);
+    container.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('next-' + q).disabled = false;
+
+    if (q === 'q1' && (val === 'sim_oculos' || val === 'sim_lentes')) {
+      const notice = document.getElementById('notice-q3');
+      if (notice) {
+        notice.innerHTML = '<div class="context-notice"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Você usa correção óptica — ótimo! Nas próximas perguntas, responda considerando como você enxerga <strong>usando seus óculos ou lentes</strong>.</span></div>';
+      }
+    }
+  }
+
+  function goTo(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById('screen-' + screenId);
+    if (target) { target.classList.add('active'); window.scrollTo(0, 0); }
+  }
+
+  function goToContact() {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-contact').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function calcScore() {
+    const scored = ['q2','q3','q4','q5','q6','q7','q8','q9'];
+    return scored.reduce((sum, q) => sum + (answers[q] ? answers[q].pts : 0), 0);
+  }
+
+  function calcHypothesis() {
+    const p3 = answers.q3 ? answers.q3.pts : 0;
+    const p4 = answers.q4 ? answers.q4.pts : 0;
+    const p5 = answers.q5 ? answers.q5.pts : 0;
+    const p6 = answers.q6 ? answers.q6.pts : 0;
+    const p7 = answers.q7 ? answers.q7.pts : 0;
+    const p9 = answers.q9 ? answers.q9.pts : 0;
+    const p1 = answers.q1 ? answers.q1.val : 'nao';
+
+    if (p3 >= 2 && p4 >= 2) return 'Possível miopia com astigmatismo';
+    if (p5 >= 2 && (p3 >= 2 || p4 >= 2)) return 'Possível astigmatismo associado';
+    if (p3 >= 2 && p4 <= 1) return 'Possível miopia';
+    if (p4 >= 2 && p3 <= 1) return 'Possível hipermetropia / presbiopia';
+    if (p6 >= 1 && p7 >= 2 && p3 <= 1 && p4 <= 1) return 'Possível fadiga visual / cefaleia de esforço ocular';
+    if (p9 >= 2 && p3 <= 1 && p4 <= 1) return 'Possível fadiga digital / olho seco';
+    if (p1 !== 'nao') return 'Correção óptica possivelmente desatualizada';
+    return null;
+  }
+
+  // Rótulos legíveis para as respostas — usados no payload do webhook
+  const labelMap = {
+    q1: { sim_oculos: 'Sim, usa óculos', sim_lentes: 'Sim, usa lentes de contato', nao: 'Não usa correção óptica' },
+    q2: { nunca: 'Nunca foi', mais2: 'Há mais de 2 anos', '1a2': 'Entre 1 e 2 anos atrás', menos1: 'Menos de 1 ano atrás' },
+    q3: { clara: 'Claramente, sem dificuldade', pouco: 'Um pouco borrado', muito: 'Muito borrado', nao_consigo: 'Não consigo ler / enxergar' },
+    q4: { clara: 'Claramente, sem dificuldade', pouco: 'Um pouco borrado', muito: 'Muito borrado', afastar: 'Preciso afastar ou aproximar' },
+    q5: { nao: 'Não', as_vezes: 'Às vezes', frequente: 'Com frequência' },
+    q6: { nunca: 'Nunca', as_vezes: 'Às vezes', frequente: 'Com frequência' },
+    q7: { nao: 'Não', as_vezes: 'Às vezes', frequente: 'Com frequência', todo_dia: 'Quase todo dia' },
+    q8: { normal: 'Normal', pior: 'Um pouco pior que o normal', muito: 'Muito difícil — evito sair à noite' },
+    q9: { nao: 'Não', as_vezes: 'Às vezes', frequente: 'Com frequência', todo_dia: 'Quase todo dia' }
+  };
+
+  function getLabel(q) {
+    const a = answers[q];
+    if (!a) return '';
+    return (labelMap[q] && labelMap[q][a.val]) ? labelMap[q][a.val] : a.val;
+  }
+
+  function sendToMake(payload) {
+    fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(err) {
+      console.warn('Webhook Make não enviado:', err);
+    });
+  }
+
+  function showResult() {
+    const nome  = document.getElementById('f-nome').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    if (!nome || !phone) {
+      alert('Por favor, preencha nome e WhatsApp para liberar seu resultado.');
+      return;
+    }
+
+    // Desabilita o botão para evitar duplo envio
+    const submitBtn = document.getElementById('btn-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Calculando...';
+
+    const score      = calcScore();
+    const hypothesis = calcHypothesis();
+    const usesCorrection = answers.q1 && answers.q1.val !== 'nao';
+
+    let band, badgeClass, title, message, urgency, urgencyClass;
+
+    if (score <= 4) {
+      band         = 'Verde';
+      badgeClass   = 'green';
+      title        = 'Visão aparentemente normal';
+      message      = usesCorrection
+        ? 'Com seus óculos/lentes, sua visão está bem! Sua correção atual parece adequada. Recomendamos apenas uma revisão anual de grau para garantir que tudo continue em dia.'
+        : 'Olá, ' + nome + '! Com base nas suas respostas, sua visão está aparentemente bem — não identificamos sinais de alteração visual no momento. Mesmo assim, recomendamos uma consulta de rotina pelo menos uma vez por ano para preservar sua saúde visual.';
+      urgency      = 'Recomendamos consulta de rotina anual';
+      urgencyClass = 'green';
+    } else if (score <= 10) {
+      band         = 'Azul';
+      badgeClass   = 'blue';
+      title        = 'Leve dificuldade visual';
+      message      = 'Olá, ' + nome + '! Suas respostas indicam alguns sinais de dificuldade visual que merecem atenção.'
+        + (hypothesis ? ' Pode ser algo relacionado a ' + hypothesis.toLowerCase() + '.' : '')
+        + ' Isso não é urgente, mas uma avaliação nos próximos 30 a 60 dias é bastante recomendada.'
+        + (usesCorrection ? ' Como você já usa óculos/lentes, esses sinais podem indicar que seu grau está desatualizado.' : '');
+      urgency      = 'Agendamento recomendado em até 30 a 60 dias';
+      urgencyClass = 'blue';
+    } else if (score <= 16) {
+      band         = 'Laranja';
+      badgeClass   = 'orange';
+      title        = 'Alteração moderada detectada';
+      message      = 'Olá, ' + nome + '! Suas respostas mostram múltiplos sinais de dificuldade visual.'
+        + (hypothesis ? ' Eles podem estar relacionados a ' + hypothesis.toLowerCase() + '.' : '')
+        + ' Recomendamos agendar uma consulta o quanto antes, idealmente nos próximos 7 a 14 dias. Deixar sem avaliação pode causar cansaço visual, dores de cabeça frequentes e piora progressiva.'
+        + (usesCorrection ? ' Mesmo usando óculos/lentes, você relatou dificuldades significativas — isso sugere fortemente que seu grau precisa de revisão.' : '');
+      urgency      = 'Consulta recomendada nos próximos 7 a 14 dias';
+      urgencyClass = 'orange';
+    } else {
+      band         = 'Vermelho';
+      badgeClass   = 'red';
+      title        = 'Atenção: alteração significativa';
+      message      = 'Olá, ' + nome + '! Suas respostas indicam dificuldades visuais importantes que precisam de avaliação o quanto antes — preferencialmente esta semana.'
+        + (hypothesis ? ' Os sinais relatados podem estar associados a ' + hypothesis.toLowerCase() + '.' : '')
+        + ' Não deixe para depois — cada dia sem correção adequada sobrecarrega seus olhos.'
+        + (usesCorrection ? ' Com uma pontuação tão alta mesmo usando correção, é muito provável que seu grau esteja bastante defasado.' : '');
+      urgency      = 'Prioritário — consulta recomendada esta semana';
+      urgencyClass = 'red';
+    }
+
+    // =====================================================
+    // ENVIO AO WEBHOOK DO MAKE
+    // Todas as colunas que chegarão na sua planilha
+    // =====================================================
+    sendToMake({
+      // Dados pessoais
+      nome:              nome,
+      whatsapp:          phone,
+      email:             document.getElementById('f-email').value.trim(),
+      idade:             document.getElementById('f-idade').value,
+      data_hora:         new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
+
+      // Resultado
+      pontuacao:         score,
+      pontuacao_maxima:  22,
+      classificacao:     band,
+      titulo_resultado:  title,
+      hipotese:          hypothesis || '',
+      urgencia:          urgency,
+
+      // Respostas individuais (rótulo legível)
+      r1_correcao_optica:   getLabel('q1'),
+      r2_ultima_consulta:   getLabel('q2'),
+      r3_visao_longe:       getLabel('q3'),
+      r4_visao_perto:       getLabel('q4'),
+      r5_visao_dupla:       getLabel('q5'),
+      r6_franze_olhos:      getLabel('q6'),
+      r7_dor_cabeca:        getLabel('q7'),
+      r8_visao_noturna:     getLabel('q8'),
+      r9_ardencia:          getLabel('q9')
+    });
+
+    // =====================================================
+    // Monta link WhatsApp
+    // =====================================================
+    const colorEmoji = { 'Verde': '[Verde]', 'Azul': '[Azul]', 'Laranja': '[Laranja]', 'Vermelho': '[Vermelho]' };
+    const waMensagem = encodeURIComponent(
+      colorEmoji[band] + ' *Triagem Visual Seifert — Resultado*\n\n'
+      + 'Nome: ' + nome + '\n'
+      + 'WhatsApp: ' + phone + '\n'
+      + 'Pontuação: ' + score + '/22 pontos\n'
+      + 'Classificação: ' + band + ' — ' + title + '\n'
+      + (hypothesis ? 'Hipótese identificada: ' + hypothesis + '\n' : '')
+      + 'Urgência: ' + urgency + '\n\n'
+      + 'Gostaria de agendar minha consulta na Seifert.'
+    );
+
+    // =====================================================
+    // Atualiza DOM com o resultado
+    // =====================================================
+    document.getElementById('result-badge').className = 'result-badge ' + badgeClass;
+    const badgeDot = '<span style="width:8px;height:8px;border-radius:50%;background:currentColor;display:inline-block;margin-right:8px;opacity:0.8;"></span>';
+    document.getElementById('result-badge').innerHTML = badgeDot + band;
+    document.getElementById('result-score-num').textContent = score;
+    document.getElementById('result-title').textContent = title;
+
+    const hypEl = document.getElementById('result-hypothesis');
+    if (hypothesis) {
+      hypEl.innerHTML = '<span style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.7;margin-right:6px;">Hipótese</span>' + hypothesis;
+      hypEl.style.display = 'inline-block';
+    } else {
+      hypEl.style.display = 'none';
+    }
+
+    document.getElementById('result-message').textContent = message;
+    const ub = document.getElementById('urgency-bar');
+    ub.className = 'urgency-bar ' + urgencyClass;
+    ub.textContent = urgency;
+
+    document.getElementById('whatsapp-btn').href = 'https://wa.me/554733711911?text=' + waMensagem;
+
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-result').classList.add('active');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
