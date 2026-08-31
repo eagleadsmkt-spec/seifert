@@ -984,7 +984,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // CONFIGURAÇÃO DO WEBHOOK — substitua a URL abaixo
   // pela URL do seu webhook no Make.com
   // =====================================================
-  const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/q6ofl81jkybl5i0yfpfzr22ya27plej2';
+  const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/fh383bqgxfoyywx4nnonpq3wer2xu918';
 
   const answers = {};
 
@@ -1139,6 +1139,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       whatsapp:          phone,
       email:             document.getElementById('f-email').value.trim(),
       idade:             document.getElementById('f-idade').value,
+      url_origem:        window.location.href,
+      path_origem:       window.location.pathname,
+      canal:             window.location.pathname.split('/').filter(Boolean)[0] || 'site',
       data_hora:         new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
       pontuacao:         score,
       pontuacao_maxima:  22,
