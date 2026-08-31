@@ -1134,18 +1134,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       urgencyClass = 'red';
     }
 
-    const urlAtual = new URL(window.location.href);
-    const caminhoAtual = urlAtual.pathname.replace(/^\/+|\/+$/g, '');
-    const canalAtual = caminhoAtual.split('/')[0] || 'site';
-
     sendToMake({
       nome:              nome,
       whatsapp:          phone,
       email:             document.getElementById('f-email').value.trim(),
       idade:             document.getElementById('f-idade').value,
-      url_origem:        urlAtual.href,
-      path_origem:       urlAtual.pathname,
-      canal:             canalAtual,
+      url_origem:        'https://triagem.seifert.com.br/teste',
+      path_origem:       '/teste',
+      canal:             'teste',
       data_hora:         new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
       pontuacao:         score,
       pontuacao_maxima:  22,
