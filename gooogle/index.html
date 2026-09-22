@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Descubra quais armações valorizam seus traços e comunicam a imagem que você deseja.">
-  <title>Quiz de Visagismo | seifert Ótica Inteligente</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23F4F3EF' stroke='%233A3D43' stroke-width='4'/%3E%3Cpath d='M23 24c0-3 3-5 9-5s9 2 9 4-3 3-9 4-9 2-9 4 3 4 9 4 9-2 9-5' fill='none' stroke='%233A3D43' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>Quiz de Visagismo | Seifert Ótica Inteligente</title>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -21,17 +20,16 @@
 
   <style>
     :root {
-      /* Paleta oficial da marca (Rebranding Seifert) */
-      --coral: #FF825C;       /* Seifert Coral — cor de presença / emocional */
-      --coral-dark: #D16A4B;  /* variação escura para hover/contraste */
-      --coral-soft: #FFF2EE;  /* tinta clara de apoio */
-      --blue: #6478C5;        /* Precisão Serena — cor de sustentação / institucional */
-      --deep: #3A3D43;        /* Profundidade — cor de base / solidez */
-      --cream: #F4F3EF;       /* Clareza Humana — cor de base / respiro */
+      --coral: #f97b5c;
+      --coral-dark: #d95a3a;
+      --coral-soft: #fff0eb;
+      --blue: #6b7fd4;
+      --deep: #2e2e3a;
+      --cream: #f5f2ed;
       --white: #ffffff;
-      --muted: #7B7C7F;
-      --border: rgba(58, 61, 67, 0.12);
-      --shadow: 0 16px 40px rgba(58, 61, 67, 0.08);
+      --muted: #747480;
+      --border: rgba(46, 46, 58, 0.12);
+      --shadow: 0 22px 60px rgba(35, 35, 45, 0.10);
       --radius: 22px;
     }
 
@@ -57,22 +55,16 @@
       border-bottom: 1px solid rgba(255,255,255,.07);
     }
     .brand { display: flex; align-items: center; gap: 12px; }
-    .wordmark {
-      font-family: "Space Grotesk", sans-serif;
-      font-weight: 700;
-      font-size: clamp(22px, 3vw, 28px);
-      letter-spacing: -0.3px;
-      color: #fff;
-      line-height: 1;
-    }
-    .header-tag { color: rgba(255,255,255,.48); font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 300; }
+    .header-logo { display: block; max-width: 190px; height: 48px; object-fit: contain; }
+    .header-logo-fallback { display: none; color: #fff; font-weight: 700; letter-spacing: .3px; }
+    .header-tag { color: rgba(255,255,255,.48); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
 
     .hero {
       min-height: 610px;
       padding: 82px clamp(22px, 6vw, 88px) 90px;
       background:
-        radial-gradient(circle at 82% 30%, rgba(255,130,92,.17), transparent 27%),
-        radial-gradient(circle at 12% 94%, rgba(100,120,197,.13), transparent 30%),
+        radial-gradient(circle at 82% 30%, rgba(249,123,92,.17), transparent 27%),
+        radial-gradient(circle at 12% 94%, rgba(107,127,212,.13), transparent 30%),
         var(--deep);
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
@@ -86,9 +78,9 @@
       align-items: center;
       gap: 9px;
       padding: 7px 14px;
-      border: 1px solid rgba(255,130,92,.28);
+      border: 1px solid rgba(249,123,92,.28);
       border-radius: 999px;
-      background: rgba(255,130,92,.09);
+      background: rgba(249,123,92,.09);
       color: var(--coral);
       font-size: 11px;
       font-weight: 700;
@@ -100,10 +92,9 @@
     .hero h1 {
       max-width: 700px;
       color: #fff;
-      font-size: clamp(38px, 5.4vw, 66px);
-      font-weight: 300;
-      line-height: 1.12;
-      letter-spacing: -0.4px;
+      font-size: clamp(38px, 5.4vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -2.6px;
       margin-bottom: 22px;
     }
     .hero h1 em { color: var(--coral); font-style: normal; }
@@ -129,7 +120,7 @@
       justify-content: center;
       gap: 10px;
       transition: .2s ease;
-      box-shadow: 0 12px 30px rgba(255,130,92,.22);
+      box-shadow: 0 12px 30px rgba(249,123,92,.22);
     }
     .primary-btn:hover { background: var(--coral-dark); transform: translateY(-2px); }
 
@@ -139,29 +130,32 @@
     }
     .visual-orbit { width: 390px; height: 390px; }
     .visual-orbit::before { inset: 44px; }
-    .visual-orbit::after { inset: 92px; border-color: rgba(255,130,92,.20); }
+    .visual-orbit::after { inset: 92px; border-color: rgba(249,123,92,.20); }
     .glasses-card {
       width: min(410px, 100%);
       aspect-ratio: 1.15;
       border-radius: 32px;
-      background: rgba(244,243,239,.06);
-      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 35px 80px rgba(0,0,0,.28);
       display: grid;
       place-items: center;
+      backdrop-filter: blur(8px);
       position: relative;
       z-index: 1;
+      transform: rotate(-3deg);
     }
-    .glasses-card svg { width: 58%; }
+    .glasses-card svg { width: 80%; filter: drop-shadow(0 16px 24px rgba(0,0,0,.24)); }
     .micro-card {
       position: absolute;
       z-index: 3;
       padding: 12px 16px;
-      background: var(--cream);
+      background: rgba(255,255,255,.95);
       color: var(--deep);
-      border: 1px solid var(--border);
       border-radius: 13px;
       font-size: 12px;
       font-weight: 600;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
     }
     .micro-card.one { top: 34px; right: 0; }
     .micro-card.two { bottom: 42px; left: -8px; }
@@ -185,7 +179,7 @@
     }
     .section-head { max-width: 650px; margin: 0 auto 46px; text-align: center; }
     .section-kicker { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-    .section-head h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 300; line-height: 1.18; letter-spacing: -0.3px; margin-bottom: 13px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.13; letter-spacing: -1px; margin-bottom: 13px; }
     .section-head p { color: var(--muted); line-height: 1.65; }
     .feature-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .feature {
@@ -226,7 +220,7 @@
       gap: 13px;
       transition: .16s ease;
     }
-    .option:hover { border-color: rgba(255,130,92,.5); background: #fff8f5; }
+    .option:hover { border-color: rgba(249,123,92,.5); background: #fff8f5; }
     .option.selected { border-color: var(--coral); background: var(--coral-soft); }
     .option-mark {
       width: 22px; height: 22px; margin-top: 1px; flex: 0 0 22px;
@@ -267,9 +261,9 @@
     .privacy { margin-top: 13px; text-align: center; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 
     .result-card { overflow: hidden; position: relative; }
-    .result-card::before { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,130,92,.08); top: -145px; right: -90px; }
+    .result-card::before { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; background: rgba(249,123,92,.08); top: -145px; right: -90px; }
     .result-kicker { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 11px; position: relative; }
-    .result-title { max-width: 610px; font-size: clamp(30px, 5vw, 45px); font-weight: 300; line-height: 1.14; letter-spacing: -0.3px; margin-bottom: 10px; position: relative; }
+    .result-title { max-width: 610px; font-size: clamp(30px, 5vw, 45px); line-height: 1.08; letter-spacing: -1.4px; margin-bottom: 10px; position: relative; }
     .result-combo { display: inline-flex; padding: 7px 12px; background: var(--coral-soft); color: var(--coral-dark); border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 22px; }
     .result-intro { color: #585863; line-height: 1.7; margin-bottom: 27px; }
     .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
@@ -279,43 +273,13 @@
     .result-list { list-style: none; display: grid; gap: 9px; margin: 0 0 24px; }
     .result-list li { padding-left: 21px; position: relative; color: #55555f; line-height: 1.55; font-size: 14px; }
     .result-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--coral-dark); font-weight: 700; }
-    .try-note { padding: 18px; border-radius: 14px; background: rgba(100,120,197,.08); color: #3C4876; line-height: 1.6; font-size: 14px; margin-bottom: 23px; }
+    .try-note { padding: 18px; border-radius: 14px; background: rgba(107,127,212,.08); color: #4d5888; line-height: 1.6; font-size: 14px; margin-bottom: 23px; }
     .wa-btn {
       width: 100%; min-height: 56px; border-radius: 13px; background: #25d366; color: #fff; font-weight: 700;
       text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 9px; transition: .16s ease;
     }
     .wa-btn:hover { background: #1fb95a; transform: translateY(-1px); }
     .disclaimer { margin-top: 14px; text-align: center; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
-
-    .tryon-card { margin-top: 18px; border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 5vw, 40px); background: var(--white); box-shadow: var(--shadow); }
-    .tryon-card h3 { font-size: 19px; margin-bottom: 9px; letter-spacing: -.3px; }
-    .tryon-intro { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; }
-    .tryon-upload {
-      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      padding: 14px 24px; border-radius: 999px; border: 1.5px solid var(--coral);
-      color: var(--coral-dark); font-weight: 700; font-size: 14.5px; cursor: pointer; transition: .16s ease;
-    }
-    .tryon-upload:hover { background: var(--coral-soft); }
-    .tryon-upload.busy { opacity: .6; pointer-events: none; }
-    .tryon-status { min-height: 18px; margin-top: 13px; color: var(--muted); font-size: 13px; line-height: 1.5; }
-    .tryon-status.error { color: #b42318; }
-    .tryon-canvas-wrap { display: none; margin-top: 20px; }
-    .tryon-canvas-wrap.visible { display: block; }
-    #tryon-canvas { display: block; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 18px 40px rgba(35,35,45,.14); }
-    .tryon-download {
-      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px 22px;
-      border-radius: 999px; background: var(--deep); color: #fff; text-decoration: none; font-weight: 700; font-size: 13.5px;
-    }
-    .tryon-download:hover { background: #3d3d4d; }
-    .tryon-disclaimer { margin-top: 16px; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
-
-    .result-photo-wrap { display: none; margin: 4px 0 26px; padding: 20px; border-radius: 18px; background: #fbfaf8; border: 1px solid var(--border); text-align: center; }
-    .result-photo-wrap.visible { display: block; }
-    .result-photo-label { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 14px; }
-    #result-photo-img { display: block; width: 100%; max-width: 380px; margin: 0 auto; border-radius: 14px; box-shadow: 0 18px 40px rgba(35,35,45,.14); }
-    .result-photo-status { min-height: 16px; margin-top: 12px; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
-    #result-photo-download { display: inline-flex; align-items: center; gap: 8px; margin-top: 15px; padding: 11px 20px; border-radius: 999px; background: var(--deep); color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; }
-    #result-photo-download:hover { background: #3d3d4d; }
 
     footer { padding: 30px 24px; background: var(--deep); text-align: center; color: rgba(255,255,255,.35); font-size: 12px; line-height: 1.7; }
 
@@ -328,6 +292,7 @@
     @media (max-width: 600px) {
       header { min-height: 68px; }
       .header-tag { display: none; }
+      .header-logo { height: 40px; max-width: 160px; }
       .hero { padding: 48px 20px 62px; gap: 36px; }
       .hero h1 { letter-spacing: -1.6px; }
       .hero-visual { min-height: 270px; }
@@ -354,9 +319,10 @@
 
   <header id="site-header">
     <div class="brand">
-      <span class="wordmark">seifert</span>
+      <img src="logo-seifert.png" alt="Seifert Ótica Inteligente" class="header-logo" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='block'">
+      <span class="header-logo-fallback" id="logo-fallback">Seifert Ótica Inteligente</span>
     </div>
-    <span class="header-tag">Ótica Inteligente</span>
+    <span class="header-tag">Visagismo óptico</span>
   </header>
 
   <main>
@@ -374,12 +340,11 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="visual-orbit"></div>
         <div class="glasses-card">
-          <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="38" stroke="#F97B5C" stroke-width="9"/>
-            <circle cx="150" cy="50" r="38" stroke="#F97B5C" stroke-width="9"/>
-            <path d="M88 50h24" stroke="#F97B5C" stroke-width="9" stroke-linecap="round"/>
-            <path d="M12 46l10-4" stroke="#F97B5C" stroke-width="9" stroke-linecap="round"/>
-            <path d="M188 46l-10-4" stroke="#F97B5C" stroke-width="9" stroke-linecap="round"/>
+          <svg viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M33 91C78 64 159 56 214 82L232 103M487 91C442 64 361 56 306 82L288 103" stroke="#F97B5C" stroke-width="13" stroke-linecap="round"/>
+            <path d="M229 105C247 94 273 94 291 105" stroke="#F97B5C" stroke-width="11" stroke-linecap="round"/>
+            <path d="M44 101C48 69 82 59 132 62C179 65 213 73 216 105C220 153 190 184 137 184C82 184 38 155 44 101Z" stroke="white" stroke-width="12"/>
+            <path d="M476 101C472 69 438 59 388 62C341 65 307 73 304 105C300 153 330 184 383 184C438 184 482 155 476 101Z" stroke="white" stroke-width="12"/>
           </svg>
         </div>
         <div class="micro-card one"><span>5 perguntas</span> rápidas</div>
@@ -502,31 +467,7 @@
             <button class="option" type="button" data-value="sexy" onclick="selectSingle('q5',this)"><span class="option-mark">✓</span><span class="option-copy"><strong>Sexy</strong></span></button>
           </div>
         </div>
-        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q4')">← Voltar</button><button class="next-btn" id="next-q5" type="button" disabled onclick="startTryon()">Ver meu resultado</button></div>
-      </div>
-
-      <div class="screen" id="screen-tryon">
-        <div class="progress-top"><span>Quase lá</span><strong>Bônus</strong></div>
-        <div class="progress"><span style="width:92%"></span></div>
-        <article class="tryon-card" id="tryon-card">
-          <h3>Quer se ver com esse estilo? (opcional)</h3>
-          <p class="tryon-intro">Envie uma foto de rosto, de frente e com boa iluminação. Nós desenhamos por cima da sua foto o formato de armação sugerido para o seu perfil. Todo o processamento acontece aqui no seu navegador — a foto não é enviada para nenhum servidor.</p>
-          <label class="tryon-upload" for="photo-input" id="tryon-upload-label">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4.5-4.5a2 2 0 0 1 2.8 0L16 16"/><path d="M14 14l1.5-1.5a2 2 0 0 1 2.8 0L21 15"/><circle cx="8" cy="8" r="1.6"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg>
-            <span id="tryon-upload-text">Escolher foto</span>
-          </label>
-          <input type="file" accept="image/*" id="photo-input" hidden>
-          <p class="tryon-status" id="tryon-status"></p>
-          <div class="tryon-canvas-wrap" id="tryon-canvas-wrap">
-            <canvas id="tryon-canvas"></canvas>
-            <a class="tryon-download" id="tryon-download" download="seifert-visagismo.png">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
-              Baixar imagem
-            </a>
-          </div>
-          <p class="tryon-disclaimer">Simulação visual aproximada com base no formato e na cor sugeridos — não substitui a prova real da armação na loja.</p>
-        </article>
-        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q5')">← Voltar</button><button class="next-btn" type="button" onclick="goTo('contact')">Continuar</button></div>
+        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q4')">← Voltar</button><button class="next-btn" id="next-q5" type="button" disabled onclick="goTo('contact')">Ver meu resultado</button></div>
       </div>
 
       <div class="screen" id="screen-contact">
@@ -545,7 +486,7 @@
           <button class="primary-btn submit-btn" id="submit-btn" type="submit">Liberar meu resultado</button>
           <p class="privacy">Ao continuar, você concorda em receber contato da Seifert. Seus dados serão usados apenas para atendimento e relacionamento.</p>
         </form>
-        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('tryon')">← Voltar</button><span></span></div>
+        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q5')">← Voltar</button><span></span></div>
       </div>
 
       <div class="screen" id="screen-result">
@@ -554,15 +495,6 @@
           <h2 class="result-title" id="result-title"></h2>
           <div class="result-combo" id="result-combo"></div>
           <p class="result-intro" id="result-intro"></p>
-          <div class="result-photo-wrap" id="result-photo-wrap">
-            <div class="result-photo-label">Sua foto com a sugestão aplicada</div>
-            <img id="result-photo-img" alt="Sua foto com a sugestão de armação aplicada">
-            <p class="result-photo-status" id="result-photo-status"></p>
-            <a id="result-photo-download" download="seifert-visagismo-resultado.png">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
-              Baixar imagem
-            </a>
-          </div>
           <h3 style="font-size:16px;margin-bottom:13px;">Procure por armações com:</h3>
           <ul class="result-list" id="result-list"></ul>
           <div class="result-grid">
@@ -584,9 +516,6 @@
 
   <script>
     const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/q6ofl81jkybl5i0yfpfzr22ya27plej2';
-    // Webhook dedicado à geração da imagem com IA (edição via OpenAI a partir da foto do usuário).
-    // Troque pela URL do SEU cenário no Make (veja instruções de configuração enviadas junto com o arquivo).
-    const AI_IMAGE_WEBHOOK_URL = 'https://hook.us2.make.com/SUBSTITUA_PELO_WEBHOOK_DE_IMAGEM_IA';
     const WHATSAPP_NUMBER = '554733711911';
     const answers = { q1: [] };
 
@@ -675,11 +604,6 @@
       if (target) target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       pushEvent('visagismo_quiz_step', { etapa: id });
-    }
-
-    function startTryon() {
-      window.lastResult = calculateResult();
-      goTo('tryon');
     }
 
     function selectMulti(button) {
@@ -820,18 +744,6 @@
       document.getElementById('result-combo').textContent = secondary ? profile.name + ' + ' + secondary.name : profile.name;
       document.getElementById('result-intro').textContent = profile.intro;
 
-      const photoWrap = document.getElementById('result-photo-wrap');
-      const photoStatus = document.getElementById('result-photo-status');
-      if (window.tryonResultDataUrl) {
-        document.getElementById('result-photo-img').src = window.tryonResultDataUrl;
-        document.getElementById('result-photo-download').href = window.tryonResultDataUrl;
-        photoWrap.classList.add('visible');
-        photoStatus.textContent = '';
-      } else {
-        photoWrap.classList.remove('visible');
-        photoStatus.textContent = '';
-      }
-
       const recommendations = [result.format, ...profile.formats].slice(0, 4);
       document.getElementById('result-list').innerHTML = recommendations.map(item => '<li>' + escapeHtml(item) + '</li>').join('');
       document.getElementById('result-colors').textContent = result.colors;
@@ -881,48 +793,6 @@
       }).catch(error => console.warn('Não foi possível enviar o lead ao webhook:', error));
     }
 
-    function buildAiPrompt(result) {
-      return 'Edite esta foto de rosto adicionando óculos de grau realistas, respeitando estas direções: ' +
-        'formato/estrutura: ' + result.format + ' ' +
-        'cor: ' + result.colors + ' ' +
-        'presença visual: ' + result.presence + ' ' +
-        'Mantenha o rosto, a expressão, a pose, a iluminação e o fundo originais da foto, sem alterar outros elementos. ' +
-        'Resultado fotorrealista, natural e bem enquadrado.';
-    }
-
-    // Chama o webhook do Make responsável por gerar a imagem editada por IA (via OpenAI),
-    // usando a foto original capturada na etapa de "experimente com foto". Retorna uma
-    // string pronta para usar como src de <img> (data URL ou URL), ou null se não houver
-    // foto/áudio configurado ainda.
-    async function requestAiEditedPhoto(result) {
-      if (!window.tryonPhotoBase64) return null;
-      if (!AI_IMAGE_WEBHOOK_URL || AI_IMAGE_WEBHOOK_URL.includes('SUBSTITUA')) {
-        console.warn('AI_IMAGE_WEBHOOK_URL não configurado — pulando geração por IA.');
-        return null;
-      }
-
-      const response = await fetch(AI_IMAGE_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          foto_base64: window.tryonPhotoBase64,
-          mime_type: window.tryonPhotoMime || 'image/jpeg',
-          prompt: buildAiPrompt(result),
-          perfil_principal: profiles[result.primary].name,
-          perfil_secundario: result.secondary ? profiles[result.secondary].name : '',
-          formato_recomendado: result.format,
-          direcao_de_cor: result.colors,
-          estrutura_recomendada: result.presence
-        })
-      });
-
-      if (!response.ok) throw new Error('Webhook de imagem respondeu com status ' + response.status);
-      const data = await response.json();
-      if (data.image_base64) return 'data:' + (data.mime_type || 'image/png') + ';base64,' + data.image_base64;
-      if (data.image_url) return data.image_url;
-      throw new Error('Resposta do webhook não trouxe nenhuma imagem.');
-    }
-
     document.getElementById('f-phone').addEventListener('input', function() {
       let digits = this.value.replace(/\D/g,'').slice(0,11);
       if (digits.length > 10) this.value = digits.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
@@ -947,7 +817,6 @@
         cidade: document.getElementById('f-city').value.trim()
       };
       const result = calculateResult();
-      window.lastResult = result;
       const attribution = captureAttribution();
       const payload = {
         ...lead,
@@ -976,274 +845,6 @@
       goTo('result');
       button.disabled = false;
       button.textContent = 'Liberar meu resultado';
-
-      if (window.tryonPhotoBase64) {
-        const photoStatus = document.getElementById('result-photo-status');
-        photoStatus.textContent = 'Gerando uma versão realista com IA (pode levar até 30 segundos)...';
-        requestAiEditedPhoto(result)
-          .then(dataUrl => {
-            if (!dataUrl) { photoStatus.textContent = ''; return; }
-            document.getElementById('result-photo-img').src = dataUrl;
-            document.getElementById('result-photo-download').href = dataUrl;
-            document.getElementById('result-photo-wrap').classList.add('visible');
-            photoStatus.textContent = '';
-            pushEvent('visagismo_ai_photo_success');
-          })
-          .catch(error => {
-            console.warn('Não foi possível gerar a imagem com IA:', error);
-            photoStatus.textContent = 'Não foi possível gerar a versão com IA agora — mostrando a simulação padrão.';
-          });
-      }
-    });
-  </script>
-
-  <!--
-    ===========================================================================
-    PROVA VISUAL COM FOTO (overlay de armação sobre a foto do usuário)
-    ---------------------------------------------------------------------------
-    Como funciona:
-      1. A pessoa escolhe uma foto do próprio dispositivo (não é enviada a
-         nenhum servidor — todo o processamento é local, no navegador).
-      2. Usamos a lib MediaPipe Face Landmarker (roda via WebAssembly no
-         navegador) para localizar os pontos dos olhos no rosto.
-      3. Com a posição, distância e inclinação dos olhos, desenhamos por cima
-         da foto (num <canvas>) uma armação vetorial no formato e cor que o
-         perfil de visagismo calculado recomenda.
-      4. A pessoa pode baixar a imagem resultante.
-
-    Isso é uma sobreposição estilizada (vetor), não uma foto realista gerada
-    por IA generativa. Para um resultado fotorrealista (óculos "de verdade"
-    renderizado na foto), seria necessário trocar esta etapa por uma chamada
-    a um serviço de geração/edição de imagem por IA (ex.: Gemini/Nano Banana,
-    GPT-Image, ou um modelo de virtual try-on no Replicate), o que exige um
-    backend guardando a chave de API (pode ser um cenário no Make, por
-    exemplo) — a foto sairia do navegador nesse caso.
-    ===========================================================================
-  -->
-  <script type="module">
-    const MEDIAPIPE_VERSION = '0.10.14';
-    const MEDIAPIPE_BASE = `https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MEDIAPIPE_VERSION}`;
-    const FACE_MODEL_URL = 'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
-
-    // Estilo de armação vetorial por perfil de visagismo (formato + cor aproximada da direção recomendada)
-    const glassesStyles = {
-      natural:   { shape: 'round', color: '#8a6a4f', stroke: 5, lensW: 86, lensH: 74 },
-      classico:  { shape: 'rect',  color: '#1f2430', stroke: 5, lensW: 88, lensH: 58, radius: 16 },
-      moderno:   { shape: 'hex',   color: '#3A3D43', stroke: 6, lensW: 88, lensH: 60 },
-      romantico: { shape: 'round', color: '#c98a76', stroke: 4, lensW: 80, lensH: 72 },
-      criativo:  { shape: 'hex',   color: '#7a3b6b', stroke: 7, lensW: 90, lensH: 62 },
-      dramatico: { shape: 'rect',  color: '#14141c', stroke: 8, lensW: 92, lensH: 60, radius: 8 },
-      sexy:      { shape: 'cat',   color: '#3a0f1f', stroke: 6, lensW: 88, lensH: 58 }
-    };
-
-    const uploadLabel = document.getElementById('tryon-upload-label');
-    const uploadText = document.getElementById('tryon-upload-text');
-    const photoInput = document.getElementById('photo-input');
-    const statusEl = document.getElementById('tryon-status');
-    const canvasWrap = document.getElementById('tryon-canvas-wrap');
-    const canvas = document.getElementById('tryon-canvas');
-    const downloadLink = document.getElementById('tryon-download');
-
-    let landmarkerPromise = null;
-
-    function setStatus(text, isError) {
-      statusEl.textContent = text || '';
-      statusEl.classList.toggle('error', Boolean(isError));
-    }
-
-    function setBusy(busy, label) {
-      uploadLabel.classList.toggle('busy', busy);
-      uploadText.textContent = label || (busy ? 'Processando...' : 'Escolher foto');
-    }
-
-    async function ensureLandmarker() {
-      if (!landmarkerPromise) {
-        landmarkerPromise = (async () => {
-          const { FaceLandmarker, FilesetResolver } = await import(MEDIAPIPE_BASE);
-          const filesetResolver = await FilesetResolver.forVisionTasks(`${MEDIAPIPE_BASE}/wasm`);
-          try {
-            return await FaceLandmarker.createFromOptions(filesetResolver, {
-              baseOptions: { modelAssetPath: FACE_MODEL_URL, delegate: 'GPU' },
-              runningMode: 'IMAGE',
-              numFaces: 1
-            });
-          } catch (gpuError) {
-            // Alguns navegadores/dispositivos não têm suporte a GPU delegate — tenta CPU.
-            return await FaceLandmarker.createFromOptions(filesetResolver, {
-              baseOptions: { modelAssetPath: FACE_MODEL_URL, delegate: 'CPU' },
-              runningMode: 'IMAGE',
-              numFaces: 1
-            });
-          }
-        })();
-      }
-      return landmarkerPromise;
-    }
-
-    function loadImageFromFile(file) {
-      return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.onerror = () => reject(new Error('Não foi possível abrir essa imagem.'));
-        img.src = URL.createObjectURL(file);
-      });
-    }
-
-    function hexToRgba(hex, alpha) {
-      const clean = hex.replace('#', '');
-      const r = parseInt(clean.substring(0, 2), 16);
-      const g = parseInt(clean.substring(2, 4), 16);
-      const b = parseInt(clean.substring(4, 6), 16);
-      return `rgba(${r},${g},${b},${alpha})`;
-    }
-
-    function roundRectPath(ctx, x, y, w, h, r) {
-      ctx.moveTo(x + r, y);
-      ctx.arcTo(x + w, y, x + w, y + h, r);
-      ctx.arcTo(x + w, y + h, x, y + h, r);
-      ctx.arcTo(x, y + h, x, y, r);
-      ctx.arcTo(x, y, x + w, y, r);
-      ctx.closePath();
-    }
-
-    function traceLensShape(ctx, style, cx, cy) {
-      const w = style.lensW, h = style.lensH;
-      if (style.shape === 'round') {
-        ctx.ellipse(cx, cy, w / 2, h / 2, 0, 0, Math.PI * 2);
-      } else if (style.shape === 'rect') {
-        roundRectPath(ctx, cx - w / 2, cy - h / 2, w, h, style.radius || 10);
-      } else if (style.shape === 'hex') {
-        const r = w / 2, rh = h / 2;
-        ctx.moveTo(cx - r * 0.55, cy - rh);
-        ctx.lineTo(cx + r * 0.55, cy - rh);
-        ctx.lineTo(cx + r, cy);
-        ctx.lineTo(cx + r * 0.55, cy + rh);
-        ctx.lineTo(cx - r * 0.55, cy + rh);
-        ctx.lineTo(cx - r, cy);
-        ctx.closePath();
-      } else if (style.shape === 'cat') {
-        const r = w / 2, rh = h / 2;
-        ctx.moveTo(cx - r, cy + rh * 0.5);
-        ctx.quadraticCurveTo(cx - r, cy - rh, cx - r * 0.3, cy - rh);
-        ctx.quadraticCurveTo(cx + r * 0.5, cy - rh * 1.15, cx + r, cy - rh * 0.3);
-        ctx.quadraticCurveTo(cx + r * 0.9, cy + rh * 0.7, cx + r * 0.3, cy + rh);
-        ctx.quadraticCurveTo(cx - r * 0.6, cy + rh, cx - r, cy + rh * 0.5);
-        ctx.closePath();
-      }
-    }
-
-    function drawGlassesOverlay(ctx, style, centerX, centerY, scale, angle) {
-      ctx.save();
-      ctx.translate(centerX, centerY);
-      ctx.rotate(angle);
-      ctx.scale(scale, scale);
-
-      ctx.lineJoin = 'round';
-      ctx.lineWidth = style.stroke;
-      ctx.strokeStyle = style.color;
-      ctx.fillStyle = hexToRgba(style.color, 0.15);
-
-      const lensGap = style.lensW * 0.22;
-      const halfSpan = (style.lensW + lensGap) / 2;
-
-      ctx.beginPath();
-      traceLensShape(ctx, style, halfSpan, 0);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.beginPath();
-      traceLensShape(ctx, style, -halfSpan, 0);
-      ctx.fill();
-      ctx.stroke();
-
-      // ponte
-      ctx.beginPath();
-      ctx.moveTo(-lensGap / 2 + 3, -style.lensH * 0.12);
-      ctx.quadraticCurveTo(0, -style.lensH * 0.3, lensGap / 2 - 3, -style.lensH * 0.12);
-      ctx.stroke();
-
-      // hastes (indicativas)
-      ctx.beginPath();
-      ctx.moveTo(halfSpan + style.lensW / 2, -style.lensH * 0.05);
-      ctx.lineTo(halfSpan + style.lensW / 2 + style.lensW * 0.32, -style.lensH * 0.16);
-      ctx.moveTo(-halfSpan - style.lensW / 2, -style.lensH * 0.05);
-      ctx.lineTo(-halfSpan - style.lensW / 2 - style.lensW * 0.32, -style.lensH * 0.16);
-      ctx.stroke();
-
-      ctx.restore();
-    }
-
-    async function processPhoto(file) {
-      const img = await loadImageFromFile(file);
-      const maxDim = 1000;
-      const scaleDown = Math.min(1, maxDim / Math.max(img.naturalWidth, img.naturalHeight));
-      const w = Math.max(1, Math.round(img.naturalWidth * scaleDown));
-      const h = Math.max(1, Math.round(img.naturalHeight * scaleDown));
-
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0, w, h);
-
-      // Guarda a foto original (sem o overlay vetorial) para ser usada depois, na geração
-      // da imagem realista por IA, disparada após o envio do formulário.
-      window.tryonPhotoBase64 = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
-      window.tryonPhotoMime = 'image/jpeg';
-
-      const landmarker = await ensureLandmarker();
-      const detection = landmarker.detect(canvas);
-
-      if (!detection.faceLandmarks || detection.faceLandmarks.length === 0) {
-        canvasWrap.classList.remove('visible');
-        setStatus('Não conseguimos identificar um rosto nessa foto. Tente uma foto de frente, com boa iluminação e sem óculos escuros.', true);
-        return;
-      }
-
-      const lm = detection.faceLandmarks[0];
-      // Índices padrão da malha facial do MediaPipe para os cantos dos olhos
-      const rightOuter = lm[33], rightInner = lm[133];
-      const leftOuter = lm[263], leftInner = lm[362];
-
-      const rightCenter = { x: ((rightOuter.x + rightInner.x) / 2) * w, y: ((rightOuter.y + rightInner.y) / 2) * h };
-      const leftCenter = { x: ((leftOuter.x + leftInner.x) / 2) * w, y: ((leftOuter.y + leftInner.y) / 2) * h };
-
-      const eyeDistance = Math.hypot(leftCenter.x - rightCenter.x, leftCenter.y - rightCenter.y);
-      const angle = Math.atan2(leftCenter.y - rightCenter.y, leftCenter.x - rightCenter.x);
-      const centerX = (leftCenter.x + rightCenter.x) / 2;
-      const centerY = (leftCenter.y + rightCenter.y) / 2 - eyeDistance * 0.05;
-
-      const primaryProfile = (window.lastResult && window.lastResult.primary) || 'moderno';
-      const style = glassesStyles[primaryProfile] || glassesStyles.moderno;
-      const unitSpan = style.lensW * 1.22;
-      const scale = eyeDistance / unitSpan;
-
-      drawGlassesOverlay(ctx, style, centerX, centerY, scale, angle);
-
-      const dataUrl = canvas.toDataURL('image/png');
-      downloadLink.href = dataUrl;
-      window.tryonResultDataUrl = dataUrl;
-      canvasWrap.classList.add('visible');
-      setStatus('Prévia gerada! Depois de preencher seus dados, geramos uma versão realista com IA a partir dessa mesma foto.', false);
-      pushEvent('visagismo_tryon_success', { perfil_principal: primaryProfile });
-    }
-
-    photoInput.addEventListener('change', async (event) => {
-      const file = event.target.files && event.target.files[0];
-      if (!file) return;
-
-      setBusy(true, 'Analisando foto...');
-      setStatus('Carregando o modelo de detecção facial (só na primeira vez)...', false);
-
-      try {
-        await processPhoto(file);
-      } catch (error) {
-        console.warn('Erro ao processar a foto para o try-on:', error);
-        canvasWrap.classList.remove('visible');
-        setStatus('Não foi possível processar essa imagem agora. Tente novamente com outra foto.', true);
-      } finally {
-        setBusy(false);
-        photoInput.value = '';
-      }
     });
   </script>
 </body>
