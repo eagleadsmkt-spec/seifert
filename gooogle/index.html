@@ -16,20 +16,21 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --coral: #f97b5c;
-      --coral-dark: #d95a3a;
-      --coral-soft: #fff0eb;
-      --blue: #6b7fd4;
-      --deep: #2e2e3a;
-      --cream: #f5f2ed;
+      --coral: #ff825c;
+      --coral-dark: #e26745;
+      --coral-soft: #fff0ea;
+      --blue: #6478c5;
+      --blue-soft: #eef0f9;
+      --deep: #3a3d43;
+      --cream: #f4f3ef;
       --white: #ffffff;
       --muted: #747480;
-      --border: rgba(46, 46, 58, 0.12);
-      --shadow: 0 22px 60px rgba(35, 35, 45, 0.10);
+      --border: rgba(58, 61, 67, 0.13);
+      --shadow: 0 22px 60px rgba(58, 61, 67, 0.09);
       --radius: 22px;
     }
 
@@ -39,7 +40,7 @@
       min-height: 100vh;
       background: var(--cream);
       color: var(--deep);
-      font-family: "Space Grotesk", sans-serif;
+      font-family: "Stage Grotesk", "Space Grotesk", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
     button, input, select { font: inherit; }
@@ -63,9 +64,9 @@
       min-height: 610px;
       padding: 82px clamp(22px, 6vw, 88px) 90px;
       background:
-        radial-gradient(circle at 82% 30%, rgba(249,123,92,.17), transparent 27%),
-        radial-gradient(circle at 12% 94%, rgba(107,127,212,.13), transparent 30%),
-        var(--deep);
+        radial-gradient(circle at 82% 28%, rgba(255,130,92,.18), transparent 26%),
+        radial-gradient(circle at 10% 98%, rgba(100,120,197,.14), transparent 30%),
+        var(--cream);
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
       gap: clamp(40px, 7vw, 96px);
@@ -81,7 +82,7 @@
       border: 1px solid rgba(249,123,92,.28);
       border-radius: 999px;
       background: rgba(249,123,92,.09);
-      color: var(--coral);
+      color: var(--deep);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.8px;
@@ -91,16 +92,17 @@
     .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
     .hero h1 {
       max-width: 700px;
-      color: #fff;
+      color: var(--deep);
       font-size: clamp(38px, 5.4vw, 68px);
+      font-weight: 300;
       line-height: 1.02;
       letter-spacing: -2.6px;
       margin-bottom: 22px;
     }
-    .hero h1 em { color: var(--coral); font-style: normal; }
+    .hero h1 em { color: var(--coral); font-style: normal; font-weight: 500; }
     .hero p {
       max-width: 590px;
-      color: rgba(255,255,255,.67);
+      color: rgba(58,61,67,.70);
       font-size: clamp(16px, 1.6vw, 19px);
       line-height: 1.65;
       font-weight: 300;
@@ -126,7 +128,7 @@
 
     .hero-visual { min-height: 370px; position: relative; display: grid; place-items: center; }
     .visual-orbit, .visual-orbit::before, .visual-orbit::after {
-      position: absolute; border: 1px solid rgba(255,255,255,.09); border-radius: 50%; content: "";
+      position: absolute; border: 1px solid rgba(58,61,67,.14); border-radius: 50%; content: "";
     }
     .visual-orbit { width: 390px; height: 390px; }
     .visual-orbit::before { inset: 44px; }
@@ -135,9 +137,9 @@
       width: min(410px, 100%);
       aspect-ratio: 1.15;
       border-radius: 32px;
-      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 35px 80px rgba(0,0,0,.28);
+      background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(244,243,239,.74));
+      border: 1px solid rgba(58,61,67,.10);
+      box-shadow: 0 35px 80px rgba(58,61,67,.14);
       display: grid;
       place-items: center;
       backdrop-filter: blur(8px);
@@ -145,7 +147,7 @@
       z-index: 1;
       transform: rotate(-3deg);
     }
-    .glasses-card svg { width: 80%; filter: drop-shadow(0 16px 24px rgba(0,0,0,.24)); }
+    .glasses-card svg { width: 80%; filter: drop-shadow(0 16px 24px rgba(58,61,67,.18)); }
     .micro-card {
       position: absolute;
       z-index: 3;
@@ -155,7 +157,7 @@
       border-radius: 13px;
       font-size: 12px;
       font-weight: 600;
-      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+      box-shadow: 0 14px 34px rgba(58,61,67,.14);
     }
     .micro-card.one { top: 34px; right: 0; }
     .micro-card.two { bottom: 42px; left: -8px; }
@@ -179,14 +181,14 @@
     }
     .section-head { max-width: 650px; margin: 0 auto 46px; text-align: center; }
     .section-kicker { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-    .section-head h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.13; letter-spacing: -1px; margin-bottom: 13px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 42px); line-height: 1.13; letter-spacing: -1px; margin-bottom: 13px; font-weight: 400; }
     .section-head p { color: var(--muted); line-height: 1.65; }
     .feature-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
     .feature {
       padding: 28px;
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: linear-gradient(145deg, #fff, #fbfaf8);
+      background: linear-gradient(145deg, #fff, var(--cream));
     }
     .feature-number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; color: var(--coral-dark); background: var(--coral-soft); font-size: 13px; font-weight: 700; margin-bottom: 20px; }
     .feature h3 { font-size: 17px; margin-bottom: 8px; }
@@ -202,7 +204,7 @@
     .progress > span { display: block; height: 100%; background: var(--coral); border-radius: inherit; transition: width .35s ease; }
     .quiz-card, .form-card, .result-card { background: var(--white); border-radius: var(--radius); padding: clamp(26px, 5vw, 46px); box-shadow: var(--shadow); border: 1px solid rgba(46,46,58,.055); }
     .question-label { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 13px; }
-    .question-title { font-size: clamp(23px, 3.5vw, 31px); line-height: 1.18; letter-spacing: -.7px; margin-bottom: 10px; }
+    .question-title { font-size: clamp(23px, 3.5vw, 31px); line-height: 1.18; letter-spacing: -.7px; margin-bottom: 10px; font-weight: 500; }
     .question-hint { color: var(--muted); font-size: 14px; line-height: 1.55; margin-bottom: 27px; }
     .options { display: grid; gap: 10px; }
     .option {
@@ -243,7 +245,7 @@
     .next-btn:hover:not(:disabled) { background: var(--coral-dark); transform: translateY(-1px); }
     .next-btn:disabled { background: #d8d5d1; color: #a4a09c; cursor: not-allowed; }
 
-    .form-card h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 10px; letter-spacing: -.7px; }
+    .form-card h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 10px; letter-spacing: -.7px; font-weight: 500; }
     .form-card > p { color: var(--muted); line-height: 1.55; margin-bottom: 28px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     .field { margin-bottom: 16px; }
@@ -263,7 +265,7 @@
     .result-card { overflow: hidden; position: relative; }
     .result-card::before { content: ""; position: absolute; width: 250px; height: 250px; border-radius: 50%; background: rgba(249,123,92,.08); top: -145px; right: -90px; }
     .result-kicker { color: var(--coral-dark); font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 11px; position: relative; }
-    .result-title { max-width: 610px; font-size: clamp(30px, 5vw, 45px); line-height: 1.08; letter-spacing: -1.4px; margin-bottom: 10px; position: relative; }
+    .result-title { max-width: 610px; font-size: clamp(30px, 5vw, 45px); line-height: 1.08; letter-spacing: -1.4px; margin-bottom: 10px; position: relative; font-weight: 500; }
     .result-combo { display: inline-flex; padding: 7px 12px; background: var(--coral-soft); color: var(--coral-dark); border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 22px; }
     .result-intro { color: #585863; line-height: 1.7; margin-bottom: 27px; }
     .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
@@ -281,7 +283,7 @@
     .wa-btn:hover { background: #1fb95a; transform: translateY(-1px); }
     .disclaimer { margin-top: 14px; text-align: center; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 
-    footer { padding: 30px 24px; background: var(--deep); text-align: center; color: rgba(255,255,255,.35); font-size: 12px; line-height: 1.7; }
+    footer { padding: 30px 24px; background: var(--deep); text-align: center; color: rgba(255,255,255,.48); font-size: 12px; line-height: 1.7; }
 
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 64px; text-align: center; }
@@ -343,8 +345,8 @@
           <svg viewBox="0 0 520 230" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M33 91C78 64 159 56 214 82L232 103M487 91C442 64 361 56 306 82L288 103" stroke="#F97B5C" stroke-width="13" stroke-linecap="round"/>
             <path d="M229 105C247 94 273 94 291 105" stroke="#F97B5C" stroke-width="11" stroke-linecap="round"/>
-            <path d="M44 101C48 69 82 59 132 62C179 65 213 73 216 105C220 153 190 184 137 184C82 184 38 155 44 101Z" stroke="white" stroke-width="12"/>
-            <path d="M476 101C472 69 438 59 388 62C341 65 307 73 304 105C300 153 330 184 383 184C438 184 482 155 476 101Z" stroke="white" stroke-width="12"/>
+            <path d="M44 101C48 69 82 59 132 62C179 65 213 73 216 105C220 153 190 184 137 184C82 184 38 155 44 101Z" stroke="#3A3D43" stroke-width="12"/>
+            <path d="M476 101C472 69 438 59 388 62C341 65 307 73 304 105C300 153 330 184 383 184C438 184 482 155 476 101Z" stroke="#3A3D43" stroke-width="12"/>
           </svg>
         </div>
         <div class="micro-card one"><span>5 perguntas</span> rápidas</div>
@@ -515,7 +517,7 @@
   </footer>
 
   <script>
-    const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/q6ofl81jkybl5i0yfpfzr22ya27plej2';
+    const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/ay27m4901ou5e4h730se3gmsrwlmxb4o';
     const WHATSAPP_NUMBER = '554733711911';
     const answers = { q1: [] };
 
