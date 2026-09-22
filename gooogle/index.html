@@ -281,6 +281,28 @@
     .wa-btn:hover { background: #1fb95a; transform: translateY(-1px); }
     .disclaimer { margin-top: 14px; text-align: center; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 
+    .tryon-card { margin-top: 18px; border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(24px, 5vw, 40px); background: var(--white); box-shadow: var(--shadow); }
+    .tryon-card h3 { font-size: 19px; margin-bottom: 9px; letter-spacing: -.3px; }
+    .tryon-intro { color: var(--muted); font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; }
+    .tryon-upload {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 14px 24px; border-radius: 999px; border: 1.5px solid var(--coral);
+      color: var(--coral-dark); font-weight: 700; font-size: 14.5px; cursor: pointer; transition: .16s ease;
+    }
+    .tryon-upload:hover { background: var(--coral-soft); }
+    .tryon-upload.busy { opacity: .6; pointer-events: none; }
+    .tryon-status { min-height: 18px; margin-top: 13px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .tryon-status.error { color: #b42318; }
+    .tryon-canvas-wrap { display: none; margin-top: 20px; }
+    .tryon-canvas-wrap.visible { display: block; }
+    #tryon-canvas { display: block; width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 18px 40px rgba(35,35,45,.14); }
+    .tryon-download {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px 22px;
+      border-radius: 999px; background: var(--deep); color: #fff; text-decoration: none; font-weight: 700; font-size: 13.5px;
+    }
+    .tryon-download:hover { background: #3d3d4d; }
+    .tryon-disclaimer { margin-top: 16px; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+
     footer { padding: 30px 24px; background: var(--deep); text-align: center; color: rgba(255,255,255,.35); font-size: 12px; line-height: 1.7; }
 
     @media (max-width: 860px) {
@@ -467,7 +489,31 @@
             <button class="option" type="button" data-value="sexy" onclick="selectSingle('q5',this)"><span class="option-mark">✓</span><span class="option-copy"><strong>Sexy</strong></span></button>
           </div>
         </div>
-        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q4')">← Voltar</button><button class="next-btn" id="next-q5" type="button" disabled onclick="goTo('contact')">Ver meu resultado</button></div>
+        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q4')">← Voltar</button><button class="next-btn" id="next-q5" type="button" disabled onclick="startTryon()">Ver meu resultado</button></div>
+      </div>
+
+      <div class="screen" id="screen-tryon">
+        <div class="progress-top"><span>Quase lá</span><strong>Bônus</strong></div>
+        <div class="progress"><span style="width:92%"></span></div>
+        <article class="tryon-card" id="tryon-card">
+          <h3>Quer se ver com esse estilo? (opcional)</h3>
+          <p class="tryon-intro">Envie uma foto de rosto, de frente e com boa iluminação. Nós desenhamos por cima da sua foto o formato de armação sugerido para o seu perfil. Todo o processamento acontece aqui no seu navegador — a foto não é enviada para nenhum servidor.</p>
+          <label class="tryon-upload" for="photo-input" id="tryon-upload-label">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4.5-4.5a2 2 0 0 1 2.8 0L16 16"/><path d="M14 14l1.5-1.5a2 2 0 0 1 2.8 0L21 15"/><circle cx="8" cy="8" r="1.6"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg>
+            <span id="tryon-upload-text">Escolher foto</span>
+          </label>
+          <input type="file" accept="image/*" id="photo-input" hidden>
+          <p class="tryon-status" id="tryon-status"></p>
+          <div class="tryon-canvas-wrap" id="tryon-canvas-wrap">
+            <canvas id="tryon-canvas"></canvas>
+            <a class="tryon-download" id="tryon-download" download="seifert-visagismo.png">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+              Baixar imagem
+            </a>
+          </div>
+          <p class="tryon-disclaimer">Simulação visual aproximada com base no formato e na cor sugeridos — não substitui a prova real da armação na loja.</p>
+        </article>
+        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q5')">← Voltar</button><button class="next-btn" type="button" onclick="goTo('contact')">Continuar</button></div>
       </div>
 
       <div class="screen" id="screen-contact">
@@ -486,7 +532,7 @@
           <button class="primary-btn submit-btn" id="submit-btn" type="submit">Liberar meu resultado</button>
           <p class="privacy">Ao continuar, você concorda em receber contato da Seifert. Seus dados serão usados apenas para atendimento e relacionamento.</p>
         </form>
-        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('q5')">← Voltar</button><span></span></div>
+        <div class="quiz-nav"><button class="back-btn" type="button" onclick="goTo('tryon')">← Voltar</button><span></span></div>
       </div>
 
       <div class="screen" id="screen-result">
@@ -604,6 +650,11 @@
       if (target) target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
       pushEvent('visagismo_quiz_step', { etapa: id });
+    }
+
+    function startTryon() {
+      window.lastResult = calculateResult();
+      goTo('tryon');
     }
 
     function selectMulti(button) {
@@ -817,6 +868,7 @@
         cidade: document.getElementById('f-city').value.trim()
       };
       const result = calculateResult();
+      window.lastResult = result;
       const attribution = captureAttribution();
       const payload = {
         ...lead,
@@ -845,6 +897,249 @@
       goTo('result');
       button.disabled = false;
       button.textContent = 'Liberar meu resultado';
+    });
+  </script>
+
+  <!--
+    ===========================================================================
+    PROVA VISUAL COM FOTO (overlay de armação sobre a foto do usuário)
+    ---------------------------------------------------------------------------
+    Como funciona:
+      1. A pessoa escolhe uma foto do próprio dispositivo (não é enviada a
+         nenhum servidor — todo o processamento é local, no navegador).
+      2. Usamos a lib MediaPipe Face Landmarker (roda via WebAssembly no
+         navegador) para localizar os pontos dos olhos no rosto.
+      3. Com a posição, distância e inclinação dos olhos, desenhamos por cima
+         da foto (num <canvas>) uma armação vetorial no formato e cor que o
+         perfil de visagismo calculado recomenda.
+      4. A pessoa pode baixar a imagem resultante.
+
+    Isso é uma sobreposição estilizada (vetor), não uma foto realista gerada
+    por IA generativa. Para um resultado fotorrealista (óculos "de verdade"
+    renderizado na foto), seria necessário trocar esta etapa por uma chamada
+    a um serviço de geração/edição de imagem por IA (ex.: Gemini/Nano Banana,
+    GPT-Image, ou um modelo de virtual try-on no Replicate), o que exige um
+    backend guardando a chave de API (pode ser um cenário no Make, por
+    exemplo) — a foto sairia do navegador nesse caso.
+    ===========================================================================
+  -->
+  <script type="module">
+    const MEDIAPIPE_VERSION = '0.10.14';
+    const MEDIAPIPE_BASE = `https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${MEDIAPIPE_VERSION}`;
+    const FACE_MODEL_URL = 'https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task';
+
+    // Estilo de armação vetorial por perfil de visagismo (formato + cor aproximada da direção recomendada)
+    const glassesStyles = {
+      natural:   { shape: 'round', color: '#8a6a4f', stroke: 5, lensW: 86, lensH: 74 },
+      classico:  { shape: 'rect',  color: '#1f2430', stroke: 5, lensW: 88, lensH: 58, radius: 16 },
+      moderno:   { shape: 'hex',   color: '#2e2e3a', stroke: 6, lensW: 88, lensH: 60 },
+      romantico: { shape: 'round', color: '#c98a76', stroke: 4, lensW: 80, lensH: 72 },
+      criativo:  { shape: 'hex',   color: '#7a3b6b', stroke: 7, lensW: 90, lensH: 62 },
+      dramatico: { shape: 'rect',  color: '#14141c', stroke: 8, lensW: 92, lensH: 60, radius: 8 },
+      sexy:      { shape: 'cat',   color: '#3a0f1f', stroke: 6, lensW: 88, lensH: 58 }
+    };
+
+    const uploadLabel = document.getElementById('tryon-upload-label');
+    const uploadText = document.getElementById('tryon-upload-text');
+    const photoInput = document.getElementById('photo-input');
+    const statusEl = document.getElementById('tryon-status');
+    const canvasWrap = document.getElementById('tryon-canvas-wrap');
+    const canvas = document.getElementById('tryon-canvas');
+    const downloadLink = document.getElementById('tryon-download');
+
+    let landmarkerPromise = null;
+
+    function setStatus(text, isError) {
+      statusEl.textContent = text || '';
+      statusEl.classList.toggle('error', Boolean(isError));
+    }
+
+    function setBusy(busy, label) {
+      uploadLabel.classList.toggle('busy', busy);
+      uploadText.textContent = label || (busy ? 'Processando...' : 'Escolher foto');
+    }
+
+    async function ensureLandmarker() {
+      if (!landmarkerPromise) {
+        landmarkerPromise = (async () => {
+          const { FaceLandmarker, FilesetResolver } = await import(MEDIAPIPE_BASE);
+          const filesetResolver = await FilesetResolver.forVisionTasks(`${MEDIAPIPE_BASE}/wasm`);
+          try {
+            return await FaceLandmarker.createFromOptions(filesetResolver, {
+              baseOptions: { modelAssetPath: FACE_MODEL_URL, delegate: 'GPU' },
+              runningMode: 'IMAGE',
+              numFaces: 1
+            });
+          } catch (gpuError) {
+            // Alguns navegadores/dispositivos não têm suporte a GPU delegate — tenta CPU.
+            return await FaceLandmarker.createFromOptions(filesetResolver, {
+              baseOptions: { modelAssetPath: FACE_MODEL_URL, delegate: 'CPU' },
+              runningMode: 'IMAGE',
+              numFaces: 1
+            });
+          }
+        })();
+      }
+      return landmarkerPromise;
+    }
+
+    function loadImageFromFile(file) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Não foi possível abrir essa imagem.'));
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    function hexToRgba(hex, alpha) {
+      const clean = hex.replace('#', '');
+      const r = parseInt(clean.substring(0, 2), 16);
+      const g = parseInt(clean.substring(2, 4), 16);
+      const b = parseInt(clean.substring(4, 6), 16);
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    function roundRectPath(ctx, x, y, w, h, r) {
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    function traceLensShape(ctx, style, cx, cy) {
+      const w = style.lensW, h = style.lensH;
+      if (style.shape === 'round') {
+        ctx.ellipse(cx, cy, w / 2, h / 2, 0, 0, Math.PI * 2);
+      } else if (style.shape === 'rect') {
+        roundRectPath(ctx, cx - w / 2, cy - h / 2, w, h, style.radius || 10);
+      } else if (style.shape === 'hex') {
+        const r = w / 2, rh = h / 2;
+        ctx.moveTo(cx - r * 0.55, cy - rh);
+        ctx.lineTo(cx + r * 0.55, cy - rh);
+        ctx.lineTo(cx + r, cy);
+        ctx.lineTo(cx + r * 0.55, cy + rh);
+        ctx.lineTo(cx - r * 0.55, cy + rh);
+        ctx.lineTo(cx - r, cy);
+        ctx.closePath();
+      } else if (style.shape === 'cat') {
+        const r = w / 2, rh = h / 2;
+        ctx.moveTo(cx - r, cy + rh * 0.5);
+        ctx.quadraticCurveTo(cx - r, cy - rh, cx - r * 0.3, cy - rh);
+        ctx.quadraticCurveTo(cx + r * 0.5, cy - rh * 1.15, cx + r, cy - rh * 0.3);
+        ctx.quadraticCurveTo(cx + r * 0.9, cy + rh * 0.7, cx + r * 0.3, cy + rh);
+        ctx.quadraticCurveTo(cx - r * 0.6, cy + rh, cx - r, cy + rh * 0.5);
+        ctx.closePath();
+      }
+    }
+
+    function drawGlassesOverlay(ctx, style, centerX, centerY, scale, angle) {
+      ctx.save();
+      ctx.translate(centerX, centerY);
+      ctx.rotate(angle);
+      ctx.scale(scale, scale);
+
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = style.stroke;
+      ctx.strokeStyle = style.color;
+      ctx.fillStyle = hexToRgba(style.color, 0.15);
+
+      const lensGap = style.lensW * 0.22;
+      const halfSpan = (style.lensW + lensGap) / 2;
+
+      ctx.beginPath();
+      traceLensShape(ctx, style, halfSpan, 0);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.beginPath();
+      traceLensShape(ctx, style, -halfSpan, 0);
+      ctx.fill();
+      ctx.stroke();
+
+      // ponte
+      ctx.beginPath();
+      ctx.moveTo(-lensGap / 2 + 3, -style.lensH * 0.12);
+      ctx.quadraticCurveTo(0, -style.lensH * 0.3, lensGap / 2 - 3, -style.lensH * 0.12);
+      ctx.stroke();
+
+      // hastes (indicativas)
+      ctx.beginPath();
+      ctx.moveTo(halfSpan + style.lensW / 2, -style.lensH * 0.05);
+      ctx.lineTo(halfSpan + style.lensW / 2 + style.lensW * 0.32, -style.lensH * 0.16);
+      ctx.moveTo(-halfSpan - style.lensW / 2, -style.lensH * 0.05);
+      ctx.lineTo(-halfSpan - style.lensW / 2 - style.lensW * 0.32, -style.lensH * 0.16);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    async function processPhoto(file) {
+      const img = await loadImageFromFile(file);
+      const maxDim = 1000;
+      const scaleDown = Math.min(1, maxDim / Math.max(img.naturalWidth, img.naturalHeight));
+      const w = Math.max(1, Math.round(img.naturalWidth * scaleDown));
+      const h = Math.max(1, Math.round(img.naturalHeight * scaleDown));
+
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+
+      const landmarker = await ensureLandmarker();
+      const detection = landmarker.detect(canvas);
+
+      if (!detection.faceLandmarks || detection.faceLandmarks.length === 0) {
+        canvasWrap.classList.remove('visible');
+        setStatus('Não conseguimos identificar um rosto nessa foto. Tente uma foto de frente, com boa iluminação e sem óculos escuros.', true);
+        return;
+      }
+
+      const lm = detection.faceLandmarks[0];
+      // Índices padrão da malha facial do MediaPipe para os cantos dos olhos
+      const rightOuter = lm[33], rightInner = lm[133];
+      const leftOuter = lm[263], leftInner = lm[362];
+
+      const rightCenter = { x: ((rightOuter.x + rightInner.x) / 2) * w, y: ((rightOuter.y + rightInner.y) / 2) * h };
+      const leftCenter = { x: ((leftOuter.x + leftInner.x) / 2) * w, y: ((leftOuter.y + leftInner.y) / 2) * h };
+
+      const eyeDistance = Math.hypot(leftCenter.x - rightCenter.x, leftCenter.y - rightCenter.y);
+      const angle = Math.atan2(leftCenter.y - rightCenter.y, leftCenter.x - rightCenter.x);
+      const centerX = (leftCenter.x + rightCenter.x) / 2;
+      const centerY = (leftCenter.y + rightCenter.y) / 2 - eyeDistance * 0.05;
+
+      const primaryProfile = (window.lastResult && window.lastResult.primary) || 'moderno';
+      const style = glassesStyles[primaryProfile] || glassesStyles.moderno;
+      const unitSpan = style.lensW * 1.22;
+      const scale = eyeDistance / unitSpan;
+
+      drawGlassesOverlay(ctx, style, centerX, centerY, scale, angle);
+
+      downloadLink.href = canvas.toDataURL('image/png');
+      canvasWrap.classList.add('visible');
+      setStatus('Pronto! Esta é uma simulação aproximada do formato sugerido.', false);
+      pushEvent('visagismo_tryon_success', { perfil_principal: primaryProfile });
+    }
+
+    photoInput.addEventListener('change', async (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      setBusy(true, 'Analisando foto...');
+      setStatus('Carregando o modelo de detecção facial (só na primeira vez)...', false);
+
+      try {
+        await processPhoto(file);
+      } catch (error) {
+        console.warn('Erro ao processar a foto para o try-on:', error);
+        canvasWrap.classList.remove('visible');
+        setStatus('Não foi possível processar essa imagem agora. Tente novamente com outra foto.', true);
+      } finally {
+        setBusy(false);
+        photoInput.value = '';
+      }
     });
   </script>
 </body>
